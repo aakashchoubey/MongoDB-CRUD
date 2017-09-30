@@ -4,7 +4,7 @@ var mongo = require('mongodb').MongoClient;
 var objectId = require('mongodb').ObjectID; // To transform ID to mongo ID
 var assert = require('assert');
 
-var url = 'mongodb://localhost:27017/test';
+var url = 'mongodb://choubeyaakash77:Iam7hebest@ds155674.mlab.com:55674/crud-proj';
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -21,7 +21,7 @@ router.post('/insert', function (req,res,next) {
     // Store item
     mongo.connect(url, function (err,db) {
         assert.equal(null,err);
-        db.collection('crud-proj').insertOne(item, function(err, result) {
+        db.collection('test').insertOne(item, function(err, result) {
             assert.equal(null,err);
             console.log("Item inserted");
             db.close();
@@ -38,7 +38,7 @@ router.get('/get-data', function (req,res,next) {
     // Connect to DB
     mongo.connect(url, function (err,db) {
         assert.equal(null,err);
-        var cursor = db.collection('crud-proj').find();
+        var cursor = db.collection('test').find();
         cursor.forEach(function(doc, err){
             assert.equal(null,err);
             resultArr.push(doc);
@@ -61,7 +61,7 @@ router.post('/update', function (req,res,next) {
     // Connect to DB
     mongo.connect(url, function (err,db) {
         assert.equal(null,err);
-        db.collection('crud-proj').updateOne({"_id": objectId(id)}, {$set: item},function(err, result) {
+        db.collection('test').updateOne({"_id": objectId(id)}, {$set: item},function(err, result) {
             assert.equal(null,err);
             console.log("Item Updated");
             db.close();
@@ -77,7 +77,7 @@ router.post('/delete', function (req,res,next) {
     // Connect to DB
     mongo.connect(url, function (err,db) {
         assert.equal(null,err);
-        db.collection('crud-proj').deleteOne({"_id": objectId(id)},function(err, result) {
+        db.collection('test').deleteOne({"_id": objectId(id)},function(err, result) {
             assert.equal(null,err);
             console.log("Item Deleted");
             db.close();
