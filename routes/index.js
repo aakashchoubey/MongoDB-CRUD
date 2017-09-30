@@ -4,7 +4,7 @@ var mongo = require('mongodb').MongoClient;
 var objectId = require('mongodb').ObjectID; // To transform ID to mongo ID
 var assert = require('assert');
 
-var url = 'mongodb://choubeyaakash77:crud@pwd@ds155674.mlab.com:55674/crud-proj';
+var url = 'mongodb://choubeyaakash77:crudprojdbpwd@ds155674.mlab.com:55674/crud-proj';
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
